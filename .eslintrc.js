@@ -1,32 +1,20 @@
+const fs = require('fs');
+const path = require('path');
+
+const prettierOptions = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'),
+);
+
 module.exports = {
-  extends: [
-    'react-app',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
-  ],
-  plugins: ['jsx-a11y', 'react-hooks'],
+  extends: ['react-app', 'prettier'],
+  plugins: ['prettier'],
   rules: {
-    indent: ['error', 2, { SwitchCase: 1 }],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        semi: true,
-      },
-    ],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'jsx-a11y/no-static-element-interactions': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
-    'react/react-in-jsx-scope': 'off',
+    'prettier/prettier': ['error', prettierOptions],
   },
   overrides: [
     {
-      files: ['**/*.stories.*'],
-      rules: {
-        'import/no-anonymous-default-export': 'off',
-      },
+      files: ['**/*.ts?(x)'],
+      rules: { 'prettier/prettier': ['warn', prettierOptions] },
     },
   ],
 };

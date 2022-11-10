@@ -1,18 +1,38 @@
-import {configureStore} from '@reduxjs/toolkit';
+/**
+ * Create the store with dynamic reducers
+ */
 
-import {createReducer} from './reducers';
+import {
+  configureStore,
+  getDefaultMiddleware,
+  StoreEnhancer,
+} from '@reduxjs/toolkit';
+import { createInjectorsEnhancer } from 'redux-injectors';
+import createSagaMiddleware from 'redux-saga';
 
-function configureAppStore() {
-    return configureStore({
-        reducer: createReducer(),
-    });
+import { createReducer } from './reducers';
+
+export function configureAppStore() {
+  const reduxSagaMonitorOptions = {};
+  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
+  const { run: runSaga } = sagaMiddleware;
+
+  // Create the store with saga middleware
+  const middlewares = [sagaMiddleware];
+
+  const enhancers = [
+    createInjectorsEnhancer({
+      createReducer,
+      runSaga,
+    }),
+  ] as StoreEnhancer[];
+
+  const store = configureStore({
+    reducer: createReducer(),
+    middleware: [...getDefaultMiddleware(), ...middlewares],
+    devTools: process.env.NODE_ENV !== 'production',
+    enhancers,
+  });
+
+  return store;
 }
-
-const store = configureAppStore()
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
-
