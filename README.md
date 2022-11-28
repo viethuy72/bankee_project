@@ -1,6 +1,50 @@
 # Reactjs boilerplate
 
-## Coding conventions
+# Structure folder
+
+```code
+└── src/
+    ├── app/
+    │   │
+    │   │── components
+    │   │   │
+    │   │   │  # Stateless components that are reusable, These components can’t use state , hook , or context
+    │   │   ├── elements
+    │   │   │
+    │   │   │  # Stateful components that are supposed to be reused in multiple pages. These components can depend on modules or elements.
+    │   │   └── modules
+    │   │
+    │   └── pages/
+    │       ├── HomePage
+    │       └── NotFoundPage
+    │
+    ├── contexts/
+    │   │   # React context files
+    │   └── TodoListContext.ts
+    │
+    ├── store/
+    │   │   # Redux config store and reducers
+    │   │── reducers.ts
+    │   └── configureStore.js
+    │
+    ├── styles/
+    │   │   # Style common definitions
+    │   └── global-styles.js
+    │
+    ├── types/
+    │   │   # Type definitions
+    │   └── RootState.ts
+    │
+    ├── utils/
+    │   │   # Utility functions
+    │   └── todo-list.ts
+    │
+    └── hooks/
+        │   # React hooks common
+        └── useTodoList.ts
+```
+
+# Coding conventions
 
 ## Naming
 
@@ -125,3 +169,27 @@ We don’t recommend using indexes for keys if the order of items may change.
   todos.map(todo => <Todo {...todo} key={todo.id} />);
 }
 ```
+
+# Tech Stack
+
+## Core
+
+- React
+- React Router
+- Redux
+- Redux Toolkit
+- Reselect
+- Styled Components
+- Typescript
+- React-i18next
+
+## Unit Testing
+
+- Jest
+- react-testing-library
+
+## Linting
+
+- ESLint
+- Prettier
+- Stylelint
