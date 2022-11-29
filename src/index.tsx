@@ -23,11 +23,15 @@ import { HelmetProvider } from 'react-helmet-async';
 import { configureAppStore } from 'store/configureStore';
 
 import reportWebVitals from 'reportWebVitals';
+import { configureAxios } from 'axios/configureAxios';
 
 // Initialize languages
 import './locales/i18n';
 
+configureAxios();
+
 const store = configureAppStore();
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
