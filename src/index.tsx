@@ -26,8 +26,9 @@ import reportWebVitals from 'reportWebVitals';
 import { configureAxios } from 'axios/configureAxios';
 
 // Initialize languages
-import './locales/i18n';
+import 'locales/i18n';
 
+// Initialize axios
 configureAxios();
 
 const store = configureAppStore();
