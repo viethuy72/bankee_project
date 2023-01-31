@@ -14,7 +14,7 @@ export function HomePage() {
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <div>
-        <Button> {t(messages.routingDescription())}</Button>
+        <Button> {t(messages.routingTitle())}</Button>
       </div>
       <span>{t(messages.routingDescription())}</span>
     </Wrapper>
