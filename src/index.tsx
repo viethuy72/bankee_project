@@ -23,7 +23,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { configureAppStore } from 'store/configureStore'
 
 import reportWebVitals from 'reportWebVitals'
-import { configureAxios } from 'axios/configureAxios'
+import { configureAxios } from 'configureAxios'
 
 // Initialize languages
 import 'locales/i18n'
