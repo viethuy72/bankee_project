@@ -1,10 +1,12 @@
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Button } from 'app/components/elements/Button'
 import styled from 'styled-components/macro'
 import { messages } from 'app/pages/HomePage/messages'
 
 export function HomePage() {
+  const { t } = useTranslation()
   return (
     <Wrapper>
       <Helmet>
@@ -12,9 +14,9 @@ export function HomePage() {
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <div>
-        <Button>{messages.routingTitle()}</Button>
+        <Button> {t(messages.routingDescription())}</Button>
       </div>
-      <span>{messages.routingDescription()}</span>
+      <span>{t(messages.routingDescription())}</span>
     </Wrapper>
   )
 }
