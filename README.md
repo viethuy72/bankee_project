@@ -5,6 +5,8 @@
 ```code
 └── src/
     ├── app/
+    │   │   # Routers for app
+    │   │── index.tsx
     │   │
     │   │── components
     │   │   │
@@ -53,32 +55,32 @@
 
 ```tsx
 // bad
-import reservationCard from './ReservationCard';
+import reservationCard from './ReservationCard'
 
 // good
-import { ReservationCard } from './ReservationCard';
+import { ReservationCard } from './ReservationCard'
 
 // bad
-const ReservationItem = <ReservationCard />;
+const ReservationItem = <ReservationCard />
 
 // good
-const reservationItem = <ReservationCard />;
+const reservationItem = <ReservationCard />
 ```
 
 - **Component Naming** Use the filename as the component name. For example, ReservationCard.tsx should have a reference name of ReservationCard. However, for root components of a directory, use index.tsx as the filename and use the directory name as the component name:
 
 ```tsx
 // bad
-import Footer from './Footer/Footer';
+import Footer from './Footer/Footer'
 
 // bad
-import Footer from './Footer/index';
+import Footer from './Footer/index'
 
 // bad because don't use export default
-import Footer from './Footer';
+import Footer from './Footer'
 
 // good
-import { Footer } from './Footer';
+import { Footer } from './Footer'
 ```
 
 - **Props Naming**: Avoid using DOM component prop names for different purposes.
@@ -161,12 +163,12 @@ We don’t recommend using indexes for keys if the order of items may change.
 ```tsx
 // bad
 {
-  todos.map((todo, index) => <Todo {...todo} key={index} />);
+  todos.map((todo, index) => <Todo {...todo} key={index} />)
 }
 
 // good
 {
-  todos.map(todo => <Todo {...todo} key={todo.id} />);
+  todos.map(todo => <Todo {...todo} key={todo.id} />)
 }
 ```
 

@@ -11,10 +11,10 @@ import { Helmet } from 'react-helmet-async'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { GlobalStyle } from 'styles/global-styles'
-
-import { HomePage } from './pages/HomePage'
-import { NotFoundPage } from './pages/NotFoundPage'
 import { useTranslation } from 'react-i18next'
+
+import { HomePage } from 'app/pages/HomePage'
+import { NotFoundPage } from 'app/pages/NotFoundPage'
 
 export function App() {
   const { i18n } = useTranslation()
