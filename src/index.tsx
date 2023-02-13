@@ -20,7 +20,7 @@ import { App } from 'app'
 
 import { HelmetProvider } from 'react-helmet-async'
 
-import { configureAppStore } from 'store/configureStore'
+import { store } from 'store'
 
 import reportWebVitals from 'reportWebVitals'
 import { configureAxios } from 'configureAxios'
@@ -30,8 +30,6 @@ import 'locales/i18n'
 
 // Initialize axios
 configureAxios()
-
-const store = configureAppStore()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 

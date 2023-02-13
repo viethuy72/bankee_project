@@ -1,9 +1,8 @@
-// [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
+import { store } from 'store'
 
-/* 
-  Because the redux-injectors injects your reducers asynchronously somewhere in your code
-  You have to declare them here manually
-*/
-export interface RootState {
-  // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
-}
+// Infer the `RootState` and `AppDispatch` types from the store itself
+// @ts-ignore
+export type RootState = ReturnType<typeof store.getState>
+
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
