@@ -10,13 +10,14 @@ export function HomePage() {
   return (
     <Wrapper>
       <Helmet>
-        <title>HomePage</title>
+        <title>Home Page</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
       <div>
-        <Button> {t(messages.routingTitle())}</Button>
+        <Title>Hello World</Title>
+        <Button>{t(messages.routingTitle())}</Button>
       </div>
-      <span>{t(messages.routingDescription())}</span>
+      <p>{t(messages.routingDescription())}</p>
     </Wrapper>
   )
 }
@@ -28,4 +29,8 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 320px;
+`
+
+const Title = styled.h1`
+  text-align: center;
 `
