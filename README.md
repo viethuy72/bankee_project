@@ -56,8 +56,11 @@
     │   └── messages.ts
     │
     └── hooks/
+        │
         │   # React hooks common
-        └── useTodoList.ts
+        │── useAppSelector.ts
+        │
+        └── useAppDispatch.ts
 ```
 
 # Before run app please copy file `.env.development` -> `env.local`
