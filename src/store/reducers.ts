@@ -1,7 +1,7 @@
-import homeReducer from 'app/pages/HomePage/slice'
+import todosReducer from 'app/pages/TodosPage/slice'
 
 export function createReducer() {
   return {
-    homeReducer,
+    todosReducer,
   }
 }

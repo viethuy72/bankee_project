@@ -1,21 +1,25 @@
-import React, { useCallback } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
+import axios from 'axios'
 import { Button } from 'app/components/elements/Button'
 import styled from 'styled-components/macro'
 import { messages } from 'app/pages/HomePage/messages'
-import { useAppDispatch } from 'hooks/useAppDispatch'
-import { useAppSelector } from 'hooks/useAppSelector'
-import { selectTodos, addTodo } from './slice'
+import { User } from 'types'
 
 export function HomePage() {
   const { t } = useTranslation()
-  const todos = useAppSelector(selectTodos)
-  const dispatch = useAppDispatch()
+  const [users, setUsers] = useState<User[]>([])
 
-  const handleAddTodo = useCallback(() => {
-    dispatch(addTodo('Doing something'))
-  }, [dispatch])
+  useEffect(() => {
+    fetchUsers()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const fetchUsers = useCallback(async () => {
+    const usersResponse = await axios.get<User[]>('/users')
+    setUsers(usersResponse.data)
+  }, [])
 
   return (
     <Wrapper>
@@ -29,21 +33,18 @@ export function HomePage() {
       </div>
       <p>{t(messages.routingDescription())}</p>
       <div>
+        <h2>List user</h2>
         <div>
-          <Button onClick={handleAddTodo}>Add todo</Button>
+          {users.map(user => (
+            <div key={user.id}>{user.name}</div>
+          ))}
         </div>
-        <ul>
-          {todos.map(item => {
-            return <li key={item.id}>{item.text}</li>
-          })}
-        </ul>
       </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

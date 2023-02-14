@@ -47,6 +47,8 @@
         └── useTodoList.ts
 ```
 
+# Before run app please copy file `.env.development` -> `env.local`
+
 # When use local state and global state
 
 In most cases, local state (useState) can be used, so we only use global state (Redux) in a few special cases

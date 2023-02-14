@@ -1,4 +1,4 @@
 import { RootState } from './RootState'
-import { Repo } from './Repo'
+import { User } from './User'
 
-export type { RootState, Repo }
+export type { RootState, User }

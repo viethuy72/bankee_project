@@ -27,6 +27,6 @@ const todosSlice = createSlice({
 
 export const { addTodo } = todosSlice.actions
 
-export const selectTodos = (state: RootState) => state.homeReducer
+export const selectTodos = (state: RootState) => state.todosReducer
 
 export default todosSlice.reducer

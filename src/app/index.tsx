@@ -14,6 +14,7 @@ import { GlobalStyle } from 'styles/global-styles'
 import { useTranslation } from 'react-i18next'
 
 import { HomePage } from 'app/pages/HomePage'
+import { TodosPage } from 'app/pages/TodosPage'
 import { NotFoundPage } from 'app/pages/NotFoundPage'
 
 export function App() {
@@ -30,6 +31,7 @@ export function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/todos" element={<TodosPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <GlobalStyle />
