@@ -8,6 +8,7 @@
     │   │   # Routers for app
     │   │── index.tsx
     │   │
+    │   │   # Components common definitions
     │   │── components
     │   │   │
     │   │   │  # Stateless components that are reusable, These components can’t use state , hook , or context
@@ -27,7 +28,7 @@
     ├── store/
     │   │   # Redux config store and reducers
     │   │── reducers.ts
-    │   └── configureStore.js
+    │   └── index.ts
     │
     ├── styles/
     │   │   # Style common definitions
@@ -39,7 +40,7 @@
     │
     ├── utils/
     │   │   # Utility functions
-    │   └── todo-list.ts
+    │   └── messages.ts
     │
     └── hooks/
         │   # React hooks common
@@ -76,7 +77,7 @@ import Footer from './Footer/Footer'
 // bad
 import Footer from './Footer/index'
 
-// bad because don't use export default
+// bad because don't use export default for components
 import Footer from './Footer'
 
 // good
@@ -195,3 +196,4 @@ We don’t recommend using indexes for keys if the order of items may change.
 - ESLint
 - Prettier
 - Stylelint
+- Husky
