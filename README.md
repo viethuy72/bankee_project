@@ -63,7 +63,9 @@
         └── useAppDispatch.ts
 ```
 
-# Before run app please copy file `.env.development` -> `env.local`
+### Before run app please copy file `.env.development` -> `env.local`
+
+- See more https://create-react-app.dev/docs/adding-custom-environment-variables/
 
 # When use local state and global state
 
