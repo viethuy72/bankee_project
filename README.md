@@ -19,8 +19,21 @@
     │   │
     │   └── pages/
     │       ├── HomePage
+    │       │   │
+    │       │   ├── components
+    │       │   │   │  # Stateless components use only for Home Page
+    │       │   │   ├── elements
+    │       │   │   │
+    │       │   │   │ # Stateful components use only for Home Page
+    │       │   │   └── modules
+    │       │   │
+    │       │   │  # Define redux toolkit slice
+    │       │   ├── slice
+    │       │   │
+    │       │   │  # Define i18n for home page
+    │       │   └── messages.ts
+    │       │
     │       └── NotFoundPage
-    │
     ├── contexts/
     │   │   # React context files
     │   └── TodoListContext.ts
