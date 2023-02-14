@@ -1,12 +1,22 @@
-import * as React from 'react'
+import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Button } from 'app/components/elements/Button'
 import styled from 'styled-components/macro'
 import { messages } from 'app/pages/HomePage/messages'
+import { useAppDispatch } from 'hooks/useAppDispatch'
+import { useAppSelector } from 'hooks/useAppSelector'
+import { selectTodos, addTodo } from './slice'
 
 export function HomePage() {
   const { t } = useTranslation()
+  const todos = useAppSelector(selectTodos)
+  const dispatch = useAppDispatch()
+
+  const handleAddTodo = useCallback(() => {
+    dispatch(addTodo('Doing something'))
+  }, [dispatch])
+
   return (
     <Wrapper>
       <Helmet>
@@ -18,6 +28,16 @@ export function HomePage() {
         <Button>{t(messages.routingTitle())}</Button>
       </div>
       <p>{t(messages.routingDescription())}</p>
+      <div>
+        <div>
+          <Button onClick={handleAddTodo}>Add todo</Button>
+        </div>
+        <ul>
+          {todos.map(item => {
+            return <li key={item.id}>{item.text}</li>
+          })}
+        </ul>
+      </div>
     </Wrapper>
   )
 }
