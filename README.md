@@ -67,7 +67,7 @@
 
 - See more https://create-react-app.dev/docs/adding-custom-environment-variables/
 
-# When use local state and global state
+# When to use local state and global state
 
 - In most cases, local state (useState) can be used, so we only use global state (Redux) in a few special cases
 - If you need to manage more complex, global state that needs to be shared across multiple components, you may want to consider using Redux.
